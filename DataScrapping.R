@@ -58,6 +58,9 @@ for (i in 1:nrow(haryana_dist))
 # Update column names
 colnames(haryana_blocks)<-c('BlockName', 'BlockId', 'DistricId', 'DistrictName')
 
+#Add URL
+haryana_blocks$Url <- paste0("http://soilhealth.dac.gov.in/PublicReports/NutrientsStatusPartial?State_Code=6&District_Code=",haryana_blocks$DistrictId,"&Block_Code=",haryana_blocks$BlockId)
+
 # Write tidy data
 write.csv(
   haryana_blocks,
