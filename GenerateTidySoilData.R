@@ -61,6 +61,12 @@ for(i in (3:14))
 }
 
 # Write back the csv file
-write.csv(x = df,file = paste0(dirName,".csv"))
+write.csv(x = df,file = paste0(dirName,".csv"), row.names = F, col.names = T,na = "NA")
+
+# Read csv to update "" -> NA
+df<-read.csv(file = paste0(dirName,".csv"))
+
+# Write back the csv file
+write.csv(x = df,file = paste0(dirName,".csv"), row.names = F, col.names = T,na = "NA")
 
 rm(list=ls())
